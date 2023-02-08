@@ -112,3 +112,11 @@ Constructs
     if else
     switch case
     for
+
+functions
+    variadic functions
+    anonymous functions
+    higher order functions (functions are first class citizens)
+        - functions can be assigned to variables
+        - functions can be passed as arguments
+        - functions can be returned as return values
