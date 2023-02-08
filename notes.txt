@@ -66,3 +66,43 @@ To set the environment variables
 To cross compile
     go env GOOS GOARCH
     GOOS=windows GOARCH=386 go build <file_name.go>
+
+To do escape analysis
+    go run -gcflags="-m" <file_name.go>
+    go build -gcflags="-m" <file_name.go>
+    
+
+Go Datatypes
+    string
+    bool
+
+    int
+    int8
+    int16
+    int32
+    int64
+
+    uint
+    uint8
+    uint16
+    uint32
+    uint64
+
+    float32
+    float64
+
+    complex64 (real[float32] + imaginary[float32])
+    complex128 (real[float64] + imaginary[float64])
+
+    byte (alias for uint8)
+    rune (alias for int32) (unicode character code point)
+
+
+Variables
+    Function scope
+        - can use :=
+        - cannot have unused variables
+    Package scope
+        - cannot use :=
+        - can have unused variables
+    
