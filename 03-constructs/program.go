@@ -131,4 +131,47 @@ func main() {
 	case "Free":
 		fmt.Println("[Free] - Listen to songs")
 	}
+
+	fmt.Println("for construct")
+	fmt.Println("for [v1.0]")
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
+
+	fmt.Println("for [v2.0](while)")
+
+	/*
+		sum := 1
+		for sum <= 100 {
+			sum += sum
+		}
+		fmt.Printf("sum = %d\n", sum)
+	*/
+
+	for sum := 1; sum <= 100; {
+		sum += sum
+		fmt.Printf("sum = %d\n", sum)
+	}
+
+	fmt.Println("for [v3.0] (infinite)")
+	numSum := 1
+	for {
+		numSum += numSum
+		if numSum > 100 {
+			break
+		}
+	}
+	fmt.Println("numSum =", numSum)
+
+OUTER_LOOP:
+	for i := 0; i < 10; i++ {
+		for j := 0; j < 10; j++ {
+			fmt.Printf("i = %d, j = %d\n", i, j)
+			if i == j {
+				fmt.Println("=============================")
+				// break
+				continue OUTER_LOOP
+			}
+		}
+	}
 }
