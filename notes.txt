@@ -18,3 +18,51 @@ Software Requirements:
 
 Repo:
     https://github.com/tkmagesh/cisco-go-feb-2023
+
+Paradox of Choice (Barry Schwartz)
+
+Why Go?
+    * Simplified
+        ONLY 25 keywords
+        - No access modifiers (public, private, protected)
+        - No class (only struct)
+        - No inheritence (only composition)
+        - No reference types (everything is a value in go)
+        - No exceptions (only errors)
+        - No "try catch finally" construct
+        - No pointer arithmatic
+        - No implicit type conversion
+
+    * Lightweight
+        - Close to hardware
+        - Cross compile
+
+    * Concurrency
+        - Lightweight Concurrency Model (goroutine)
+        - ~4KB (vs 2MB of OS thread)
+        - Language support
+            ex: go keyword, channel (data type), <- (channel operator), select case, range 
+        - Standard Library
+            - "sync" package
+            - "sync/atomic" package
+
+
+To run a go program
+    go run <file_name.go>
+
+To create a build
+    go build <file_name.go>
+    go build -o <binary_name> <file_name.go>
+
+To get the list of supported platforms
+    go tool dist list
+
+To get the list of environment variables used by the "go" tool
+    go env
+
+To set the environment variables
+    go env -w <var_1>=<val_1> <var_2>=<val_2>
+
+To cross compile
+    go env GOOS GOARCH
+    GOOS=windows GOARCH=386 go build <file_name.go>
