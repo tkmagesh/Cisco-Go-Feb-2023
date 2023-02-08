@@ -106,3 +106,9 @@ Variables
         - cannot use :=
         - can have unused variables
     
+Constants
+iota
+Constructs
+    if else
+    switch case
+    for
