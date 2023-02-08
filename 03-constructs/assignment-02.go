@@ -1,3 +1,5 @@
+package main
+
 /*
 	Display the following menu
 		1. Add
