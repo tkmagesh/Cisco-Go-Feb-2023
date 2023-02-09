@@ -120,3 +120,10 @@ functions
         - functions can be assigned to variables
         - functions can be passed as arguments
         - functions can be returned as return values
+
+Errors
+    - Just values
+    - error interface
+    - Creation
+        * fmt.Errorf()
+        * errors.New()
