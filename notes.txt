@@ -172,6 +172,12 @@ Modules (Go 1.13)
     to localize the dependencies 
         go mod vendor
 
+    to install a go binary
+        go install <module_name>
+
     other useful commands
         go mod graph
         go mod why <module_name>
+
+    Reference :
+        https://go.dev/ref/mod
