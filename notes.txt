@@ -137,3 +137,41 @@ Collections
 
     - Map
         typesafe collection of key/value pairs
+
+Modules (Go 1.13)
+    GOPATH
+        /bin (3rd command line tools are installed)
+        /pkg (source code of the 3rd packages were downloaded)
+        /src
+            /github.com
+                /tkmagesh
+                    /my-app
+    
+    go.mod file
+        module name
+            github.com/tkmagesh/cisco-go-feb-2023/10-modularity-demo
+
+        go version
+
+    To create a mod file
+        go mod init <module_name>
+
+    To execute a module
+        go run .
+
+    To create a build
+        go build .
+        go build -o <binary_name> .
+
+    To add a 3rd party package
+        go get -u github.com/fatih/color
+
+    to sync the go.mod file
+        go mod tidy
+
+    to localize the dependencies 
+        go mod vendor
+
+    other useful commands
+        go mod graph
+        go mod why <module_name>
