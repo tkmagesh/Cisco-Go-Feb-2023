@@ -127,3 +127,13 @@ Errors
     - Creation
         * fmt.Errorf()
         * errors.New()
+
+Collections
+    - Array
+        Fixed size  typesafe collection
+
+    - Slice
+        Varying size typesafe collection
+
+    - Map
+        typesafe collection of key/value pairs
