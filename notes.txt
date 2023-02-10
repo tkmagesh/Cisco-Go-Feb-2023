@@ -181,3 +181,8 @@ Modules (Go 1.13)
 
     Reference :
         https://go.dev/ref/mod
+
+Concurrency
+    To detect data races (NOTE : do not create a production build with race detector)
+        go run -race <program.go>
+        go build -race <program.go>
