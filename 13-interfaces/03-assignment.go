@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"sort"
+	"strings"
 )
 
 type Product struct {
@@ -29,8 +31,69 @@ Sort => Sort the products collection by any attribute
 
 */
 
+type Products []Product
+
+//fmt.Stringer interface implementation
+func (products Products) String() string {
+	var sb strings.Builder
+	for _, p := range products {
+		sb.WriteString(fmt.Sprintf("%s\n", p))
+	}
+	return sb.String()
+}
+
+//sort.Sort interface implementation
+func (products Products) Len() int {
+	return len(products)
+}
+
+//comparison by Id
+func (products Products) Less(i, j int) bool {
+	return products[i].Id < products[j].Id
+}
+
+func (products Products) Swap(i, j int) {
+	products[i], products[j] = products[j], products[i]
+}
+
+//To sort by Name
+type ByName struct {
+	Products
+}
+
+//override the Less() method
+func (byName ByName) Less(i, j int) bool {
+	return byName.Products[i].Name < byName.Products[j].Name
+}
+
+//using the sort.Slice() function
+func (products Products) Sort(attrName string) {
+	switch attrName {
+	case "Id":
+		sort.Slice(products, func(i, j int) bool {
+			return products[i].Id < products[j].Id
+		})
+	case "Name":
+		sort.Slice(products, func(i, j int) bool {
+			return products[i].Name < products[j].Name
+		})
+	case "Cost":
+		sort.Slice(products, func(i, j int) bool {
+			return products[i].Cost < products[j].Cost
+		})
+	case "Units":
+		sort.Slice(products, func(i, j int) bool {
+			return products[i].Units < products[j].Units
+		})
+	case "Category":
+		sort.Slice(products, func(i, j int) bool {
+			return products[i].Category < products[j].Category
+		})
+	}
+}
+
 func main() {
-	products := []Product{
+	products := Products{
 		Product{105, "Pen", 5, 50, "Stationary"},
 		Product{107, "Pencil", 2, 100, "Stationary"},
 		Product{103, "Marker", 50, 20, "Utencil"},
@@ -39,4 +102,19 @@ func main() {
 		Product{104, "Scribble Pad", 20, 20, "Stationary"},
 		Product{109, "Golden Pen", 2000, 20, "Stationary"},
 	}
+
+	fmt.Println("Initial List")
+	fmt.Println(products)
+
+	fmt.Println("Default Sort (by Id)")
+	sort.Sort(products)
+	fmt.Println(products)
+
+	fmt.Println("Sorting by Name")
+	sort.Sort(ByName{products})
+	fmt.Println(products)
+
+	fmt.Println("Sorting by Cost")
+	products.Sort("Cost")
+	fmt.Println(products)
 }
